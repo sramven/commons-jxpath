@@ -131,13 +131,13 @@ public class CoreOperationTest extends JXPathTestCase {
         assertXPathValue(context, "$nan <= 0", Boolean.FALSE, Boolean.class);
         assertXPathValue(context, "$nan >= 0 and $nan <= 0", Boolean.FALSE, Boolean.class);
         assertXPathValue(context, "$nan = 0", Boolean.FALSE, Boolean.class);
-        assertXPathValue(context, "$nan != 0", Boolean.FALSE, Boolean.class);
+        assertXPathValue(context, "$nan != 0", Boolean.TRUE, Boolean.class);
         assertXPathValue(context, "$nan > 1", Boolean.FALSE, Boolean.class);
         assertXPathValue(context, "$nan < 1", Boolean.FALSE, Boolean.class);
         assertXPathValue(context, "$nan >= 1", Boolean.FALSE, Boolean.class);
         assertXPathValue(context, "$nan <= 1", Boolean.FALSE, Boolean.class);
         assertXPathValue(context, "$nan >= 1 and $nan <= 1", Boolean.FALSE, Boolean.class);
         assertXPathValue(context, "$nan = 1", Boolean.FALSE, Boolean.class);
-        assertXPathValue(context, "$nan != 1", Boolean.FALSE, Boolean.class);
+        assertXPathValue(context, "$nan != 1", Boolean.TRUE, Boolean.class);
     }
 }

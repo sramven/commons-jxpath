@@ -173,14 +173,18 @@ public abstract class CoreOperationCompare extends CoreOperation {
         else if (l instanceof Number || r instanceof Number) {
             //if either side is NaN, no comparison returns true:
             double ld = InfoSetUtil.doubleValue(l);
-            if (Double.isNaN(ld)) {
-                return false;
-            }
             double rd = InfoSetUtil.doubleValue(r);
-            if (Double.isNaN(rd)) {
-                return false;
-            }
-            result = ld == rd;
+			if ((Double.isNaN(ld) && !Double.isNaN(rd)) || (!Double.isNaN(ld) && Double.isNaN(rd))) {
+				result = false;
+			} else {
+				if (Double.isNaN(ld)) {
+					return false;
+				}
+				if (Double.isNaN(rd)) {
+					return false;
+				}
+				result = ld == rd;
+			}
         }
         else {
             if (l instanceof String || r instanceof String) {
